@@ -1,0 +1,19 @@
+Process: Word excel gibi henüz çalışmayan uygulamaya program denir. Belleğe yüklenmiş ve işlemcide yürütülmekte olan bir programa ise Process denir. 
+  Process'ler hayatlarına tek bir thread ile başlar ve bu thread'e main thread denir. Diğer thread'ler ise program tarafından oluşturulur. Bir process 
+  kendi içinde başka bir process daha oluşturabilir, bu processe ise child process adı verilir.
+Thread: Bir processin birden fazla işi aynı anda yapmasını sağlayan yapılara thread denir. Bir process bünyesinde birden fazla thread barındırabilir. 
+  Threadler aynı anda sadece tek bir iş yapabilirler.
+
+Process ve thread arasındaki farkları şöyle sıralayabiliriz:
+
+- Thread process’lerin belirli bir segmentini işaret eder
+- Bir thread’in oluşturulması ve sonlandırılması process’lere göre daha kısa sürer
+- Process’ler birbirinden izole bir şekilde çalışırken, thread’ler aynı bellek kaynağını paylaşır
+- Process’ler, thread’lere göre daha fazla kaynak tüketimi yaparlar
+- Bir process bloklanırsa başka bir process işlemini gerçekleştiremez. 
+   Öncelikle ilk process’in işini bitirmesini bekler. Ancak bu durum thread’lerde geçerli değildir. 
+   Bir thread başka bir thread bloklansa bile çalışabilir.
+- Ölçeklenebilirlik açısından thread’ler daha avantajlıdır. 
+   Process’lerin ölçeklendirilmesi için çok işlemcili yapı gerekmektedir. 
+   Bu da processler’de ölçeklendirmenin donanımsal olarak yapıldığını bizlere gösteriyor. 
+   thread’lerde ise çok çekirdekli işlemcilerde birden fazla thread farklı çekirdeklerde çalıştırılabilir.
