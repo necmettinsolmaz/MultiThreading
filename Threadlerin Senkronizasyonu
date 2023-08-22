@@ -1,0 +1,23 @@
+Aynı veri ile ilgilenen birden fazla threadin veriye erişiminin düzenlenmesine threadlerin senkronizasyonu denir. 
+Burada karşılaştığımız zorlukların ilki bazı durumlarda verinin performans gerekesiyle otomatik olarak
+önbelleklenmesidir (caching).
+class Processor extends Thread {
+  private boolean running = true;
+  @Override
+  public void run () {
+    while ( running ) {
+      System . out . println ( "Merhaba" );
+    }
+  }
+  public void shutdown () {
+  this . running = false;
+  }
+}
+
+
+public static void main ( String [] args ) throws InterruptedException {
+  Processor processor = new Processor ();
+  processor . start ();
+  Thread . sleep ( 10000 );
+  processor . shutdown ();
+}
