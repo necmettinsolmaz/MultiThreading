@@ -1,0 +1,18 @@
+New; ile bir thread oluşturulur.
+Runnable: start() komutu ile thread Runnable moduna geçer. Burada run() metodu henüz çağrılmamıştır. JVM uygun bir zamanda bu threadi kendisi çalıştıracaktır.
+Running: Bu durumda thread artık çalışır durumdadır çünkü run() metodu JVM tarafından çağrılmıştır.
+Bundan sonra 4 farklı durum olabilir. Running durumunda olan bir thread için olası durumlar şöyledir.
+  - Blocked: Bir thread hemen tamamlanamayan bir görevi gerçekleştirmeye çalıştığında engellenmiş(blocked) durumuna geçer ve geçici olarak o görev tamamlanana kadar beklemek zorunda kalır. 
+    I/O isteği buna bir örnektir. Thread bu durumda Runnable durumunda Running durumuna geçer.
+  - Waiting: Bir threadin başka bir threadi bekleme durumudur. join() ve wait() metodu ile bu duruma geçer. Thread waiting durumundayken notify() ve notifyAll() metodu ile runnable durumuna geçer.
+  - TimedWaiting: Belirli bir zaman aralığı için zamanlı bekleme durumudur. Zaman bitince veya başka bir thread tarafından bildirildiğinde sona erer. sleep() metodu ile bu duruma geçer.
+  - Terminated: Thread run() metudunun yürütülmesi tamamlandığında sonlandırılmış olur. stop() metodu ile bu işlem yapılabilir ama önerilmez.
+Threadde kullanılan metotlar:
+  - start():
+  - run(): start metodu ile kendiliğinden çağrılır. Bu metodu biz çağırırsak bizim threadimiz çalışmaz main thread çalışır.
+  - yield(): Çalışan bir thread diğer threadlerin çalışmasına fırsat vermek için kendi yield() metodunu kullanarak işlemci zamanını diğer threadlere bırakabilir.
+  - sleep(milisecond): try and catch bloğu içinde yazılır. static metoddur.
+  - join(): Threadin işlemini tamamlamasını bekler. static metoddur, try and catch bloğu içinde kullanılır.
+  - wait():
+  - notify()/notifyAll():
+  - stop():
